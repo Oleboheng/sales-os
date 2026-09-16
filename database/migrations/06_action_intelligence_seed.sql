@@ -1,0 +1,27 @@
+INSERT INTO intelligence_signal_definitions (code, name, description, category, value_type, default_confidence, decay_policy, severity)
+VALUES
+('PHONE_AVAILABLE', 'Phone available', 'A call destination exists for the subject', 'CONTACT', 'BOOLEAN', 1.0, 'NONE', 'INFO'),
+('WHATSAPP_AVAILABLE', 'WhatsApp available', 'Explicit phone_whatsapp exists', 'CONTACT', 'BOOLEAN', 1.0, 'NONE', 'INFO'),
+('EMAIL_AVAILABLE', 'Email available', 'Email exists for the subject', 'CONTACT', 'BOOLEAN', 1.0, 'NONE', 'INFO'),
+('LINKEDIN_AVAILABLE', 'LinkedIn available', 'Person LinkedIn URL exists', 'CONTACT', 'BOOLEAN', 1.0, 'NONE', 'INFO'),
+('RESEARCH_NOT_STARTED', 'Research not started', 'No research row', 'RESEARCH', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'INFO'),
+('RESEARCH_IN_PROGRESS', 'Research in progress', 'Research exists without completed_at', 'RESEARCH', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'INFO'),
+('RESEARCH_COMPLETED', 'Research completed', 'research.completed_at set', 'RESEARCH', 'BOOLEAN', 1.0, 'NONE', 'INFO'),
+('DECISION_MAKER_IDENTIFIED', 'Decision maker identified', 'decision_maker_status = IDENTIFIED with person', 'DECISION_MAKER', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'INFO'),
+('DECISION_MAKER_NOT_IDENTIFIED', 'Decision maker not identified', 'status NOT_IDENTIFIED', 'DECISION_MAKER', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'INFO'),
+('DECISION_MAKER_UNCERTAIN', 'Decision maker uncertain', 'status UNCERTAIN or unknown', 'DECISION_MAKER', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'INFO'),
+('POSITIVE_RESPONSE', 'Positive response', 'Outcome indicates interest/engagement', 'ENGAGEMENT', 'TEXT', 0.9, 'TIME_DECAY', 'HIGH'),
+('RESPONSE_RECEIVED', 'Response received', 'Replied or connected', 'ENGAGEMENT', 'TEXT', 0.85, 'TIME_DECAY', 'MEDIUM'),
+('NO_RESPONSE', 'No response', 'Sent/no response outcomes', 'ENGAGEMENT', 'TEXT', 0.8, 'TIME_DECAY', 'MEDIUM'),
+('WRONG_NUMBER', 'Wrong number', 'Call destination invalid', 'CONTACT_QUALITY', 'TEXT', 1.0, 'EVENT_INVALIDATED', 'HIGH'),
+('NOT_INTERESTED', 'Not interested', 'Disposition not interested', 'DISPOSITION', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'HIGH'),
+('NEXT_ACTION_DUE', 'Next action due', 'Stored next_action due soon', 'TIMING', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'MEDIUM'),
+('NEXT_ACTION_OVERDUE', 'Next action overdue', 'Stored next_action past due', 'TIMING', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'HIGH'),
+('TASK_DUE', 'Task due', 'Pending task due soon', 'TIMING', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'MEDIUM'),
+('TASK_OVERDUE', 'Task overdue', 'Pending task past due', 'TIMING', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'HIGH'),
+('RECENT_ACTIVITY', 'Recent activity', 'Activity within recent window', 'TIMING', 'BOOLEAN', 0.9, 'TIME_DECAY', 'INFO'),
+('STALE_OPPORTUNITY', 'Stale opportunity', 'No recent activity', 'TIMING', 'BOOLEAN', 0.7, 'TIME_DECAY', 'LOW'),
+('CONTACT_INFORMATION_MISSING', 'Contact information missing', 'No usable channels', 'DATA_QUALITY', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'MEDIUM'),
+('CONTACT_INFORMATION_CONFLICT', 'Contact information conflict', 'DM IDENTIFIED without person_id', 'DATA_QUALITY', 'BOOLEAN', 1.0, 'EVENT_INVALIDATED', 'HIGH'),
+('RESEARCH_STALE', 'Research stale', 'Completed research older than threshold', 'RESEARCH', 'BOOLEAN', 0.6, 'TIME_DECAY', 'LOW')
+ON CONFLICT (code) DO NOTHING;

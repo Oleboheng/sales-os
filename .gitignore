@@ -1,0 +1,50 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# PostgreSQL data
+database/data/
+
+# Backups / database dumps
+backups/
+
+# Runtime / application data
+storage/
+
+# n8n runtime data
+n8n/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.vite/
+
+# Logs
+*.log
+logs/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary / backup source files
+*.bak
+*.bak-*
+*.backup
+*.tmp
+*~
+
+# Local development
+coverage/
+
+# Docker local overrides
+docker-compose.override.yml
