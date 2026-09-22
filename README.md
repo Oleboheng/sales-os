@@ -1,6 +1,6 @@
 # Sales OS
 
-> A purpose-built sales assistant for small-business outreach — turning prospects into researched, qualified opportunities with scoring and action recommendations.
+> A purpose built sales assistant for small business outreach, turning prospects into researched, qualified opportunities with scoring and action recommendations.
 
 Sales OS is a sales workflow application built to help small businesses run focused outbound outreach without turning the process into a complicated CRM.
 
