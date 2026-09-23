@@ -28,8 +28,6 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       PORT: ${API_PORT}
       N8N_WEBHOOK_URL: ${N8N_WEBHOOK_URL}
-    ports:
-      - "${API_PORT}:${API_PORT}"
     depends_on:
       postgres:
         condition: service_healthy
@@ -44,8 +42,6 @@ services:
       args:
         VITE_API_URL: ${VITE_API_URL}
     container_name: sales-os-frontend
-    ports:
-      - "${FRONTEND_PORT}:80"
     depends_on:
       - api
     restart: unless-stopped

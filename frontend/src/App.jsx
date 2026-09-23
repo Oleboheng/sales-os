@@ -9,6 +9,7 @@ import QuickCapture from './pages/QuickCapture';
 import DecisionMaker from './pages/DecisionMaker';
 import ProspectingQueue from './pages/ProspectingQueue';
 import ProspectExecution from './pages/ProspectExecution';
+import MobileNavigation from './components/navigation/MobileNavigation';
 
 function AppContent() {
     const [user, setUser] = useState(null);
@@ -42,7 +43,7 @@ function AppContent() {
                     <div className="hidden md:flex items-center gap-6">
                         <Link to="/" className="text-sm text-slate-300 hover:text-white transition font-medium">Dashboard</Link>
                         <Link to="/organisations" className="text-sm text-slate-300 hover:text-white transition font-medium">Organisations</Link>
-                        <Link to="/queue" className="text-sm text-indigo-400 hover:text-white transition">    Queue</Link>
+                        <Link to="/queue" className="text-sm text-indigo-400 hover:text-white transition">Queue</Link>
                     </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -57,6 +58,9 @@ function AppContent() {
                     </button>
                 </div>
             </nav>
+
+            <MobileNavigation />
+
             <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/organisations" element={<Organisations />} />

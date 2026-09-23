@@ -37,7 +37,7 @@ export default function Login({ onLogin }) {
             <div className="hidden lg:flex lg:col-span-5 xl:col-span-6 bg-slate-900 relative overflow-hidden flex-col justify-between p-12 text-white">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-slate-900 to-indigo-950/40 pointer-events-none" />
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-                
+
                 <div className="relative z-10 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/30">
                         S
@@ -76,8 +76,8 @@ export default function Login({ onLogin }) {
                             {isRegister ? 'Create an account' : 'Welcome back'}
                         </h2>
                         <p className="text-sm text-slate-500 mt-1">
-                            {isRegister 
-                                ? 'Enter your details below to set up your account.' 
+                            {isRegister
+                                ? 'Enter your details below to set up your account.'
                                 : 'Please enter your credentials to access your workspace.'}
                         </p>
                     </div>
@@ -143,8 +143,8 @@ export default function Login({ onLogin }) {
                             />
                         </div>
 
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             disabled={loading}
                             className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 focus:outline-none focus:ring-4 focus:ring-blue-600/20 transition-all disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center"
                         >
@@ -159,20 +159,18 @@ export default function Login({ onLogin }) {
                     </form>
 
                     <div className="text-center pt-2">
-                        <p className="text-sm text-slate-600">
-                            {isRegister ? 'Already have an account?' : "Don't have an account?"}{' '}
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setIsRegister(!isRegister);
-                                    setError('');
-                                }}
-                                className="font-semibold text-blue-600 hover:text-blue-700 ml-1 transition-colors"
-                            >
-                                {isRegister ? 'Sign in' : 'Create one'}
-                            </button>
-                        </p>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setIsRegister(!isRegister);
+                                setError('');
+                            }}
+                            className="text-sm font-medium text-blue-600 hover:text-blue-700"
+                        >
+                            {isRegister ? 'Sign in' : 'Create one'}
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>
